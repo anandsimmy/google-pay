@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./style.css";a
+import "./style.css";
 import axios from 'axios'
 
 function getCookie(cname) {
