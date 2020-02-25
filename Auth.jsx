@@ -97,4 +97,4 @@ const mapDispatchToProps = dispatch =>{
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(auth)s
+export default connect(mapStateToProps,mapDispatchToProps)(auth)
