@@ -19,6 +19,7 @@ class Root extends Component{
         <Route path='/' exact component={App} />
         <Route path='/transactions' exact component={Transactions} />
         <Route path='/login' exact component={Auth} />
+        <Route path='/signup' exact component={Signup} />
       </BrowserRouter>
     ) 
   }

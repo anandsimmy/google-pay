@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
+
 class auth extends Component{
     constructor(props){
       super(props)
@@ -25,11 +26,23 @@ class auth extends Component{
     .then(res=>{
         this.refs.email.value=''
         this.refs.pass.value=''
-        document.cookie="token="+res.data.accessToken;
+        console.log(res.data.data.accessToken)
+        alert('Login Successful, Redirecting to Home Page')
+        document.cookie="paymentsession="+res.data.data.accessToken;
         this.props.onTokenDispatch(res.data.data.accessToken)
+        if(res.status==200)
+        this.props.history.push('/')
     })    
     .catch(err=>{
-      console.log(err.response)
+      console.log(err)
+      this.refs.email.value=''
+      this.refs.pass.value=''
+      if(err.response.status==401){
+        alert('Email or Password is Incorrect, Try again')
+      }
+      else{
+        alert('Login error, Try again')
+      }
     })
   }
   signUp = () => {
@@ -37,13 +50,8 @@ class auth extends Component{
   }
   
   render(){
-    let authRedirect=null
-    if(this.props.token){
-        authRedirect=<Redirect to='/' />
-    }
     return(
       <div className=" sendscreen">
-        {authRedirect}
         <h1>LOGIN</h1>
         <div className="input-group input-group-md inputwidth">
           <input
@@ -89,4 +97,4 @@ const mapDispatchToProps = dispatch =>{
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(auth)
+export default connect(mapStateToProps,mapDispatchToProps)(auth)s
