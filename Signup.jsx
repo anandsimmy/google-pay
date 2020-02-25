@@ -8,25 +8,43 @@ class auth extends Component{
       super(props)
     }
     submitHandler = () => {
-    let authData={
-      name:this.refs.name.value,
-      email:this.refs.email.value,
-      phone:this.refs.tel.value,
-      password:this.refs.pass.value,
-      returnSecureToken:true
-    }
+    let authData = JSON.stringify({
+    "email": this.refs.email.value,
+    "password": this.refs.pass.value,
+    "culture": "string"
+      });
     let url=
-    'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAo44qvGmXYn_78MGynwQkH2Lt9qNg_c4g'
-    axios.post(url,authData)
+    'https://api.tcscubo.com/banking/meniga/v1/users/me/register'
+    let config= {
+    headers: {
+    "accept": "text/json",
+    "content-type": "text/json",
+    "cubo-accesstoken": "h9mvWM65tjpyGcj0xMdeJvmEoTwu"
+  }
+}
+    axios.post(url,authData,config)
     .then(res=>{
       console.log(res)
       this.refs.email.value=''
       this.refs.pass.value=''
+      this.refs.name.value=''
+      this.refs.age.value=''
       alert('Signup Successful')
+      if(res.status==200)
       this.props.history.push('/login')
     })    
     .catch(err=>{
-      console.log(err.response)
+      console.log(err)
+      this.refs.email.value=''
+      this.refs.pass.value=''
+      this.refs.name.value=''
+      this.refs.age.value=''
+      if(err.response.status==400){
+        alert('Email might alreay registered or Weak password, Try again')
+      }
+      else
+        alert('Signup error, Try again')
+      
     })
   }
   render(){
@@ -35,8 +53,8 @@ class auth extends Component{
       <div className=" sendscreen">
         <h1>SIGN UP</h1>
         <div className="input-group input-group-md inputwidth">
-          <input
-            className="form-control widthsize"
+        <input
+            className="form-control"
             type="text"
             ref="name"
             placeholder="Enter name"
@@ -49,15 +67,15 @@ class auth extends Component{
           />
           <input
             className="form-control"
-            type="tel"
-            ref="tel"
-            placeholder="Enter contact"
-          />
-          <input
-            className="form-control"
             type="password"
             ref="pass"
             placeholder="Enter password"
+          />
+          <input
+            className="form-control"
+            type="number"
+            ref="age"
+            placeholder="Enter Age"
           />
         </div>
         <button
