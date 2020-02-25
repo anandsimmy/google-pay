@@ -47,7 +47,7 @@ this.refs.message.value=''
 axios.post(url,data,config).then(res=>{
   console.log(res)
   let statement =
-      "Transaction Successful for Rs: "+this.refs.amount.value;
+      "Transaction Successful for Rs: "+res.data.data.amount;
     alert(statement);
 }).catch(err=>{
   console.log(err)
@@ -84,7 +84,7 @@ axios.post(url,data,config).then(res=>{
     window.location.href='/login'
   }
   render() {
-    if(getCookie('paymentsession')=="loggedout"){
+    if(getCookie('paymentsession')=="loggedout" || getCookie('paymentsession')==""){
     this.props.history.push('/login')
     }
     return (
