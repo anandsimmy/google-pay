@@ -47,7 +47,7 @@ this.refs.message.value=''
 axios.post(url,data,config).then(res=>{
   console.log(res)
   let statement =
-      "Transaction Successful for Rs: " + this.refs.amount.value;
+      "Transaction Successful for Rs: "+thiss.refs.amount.value;
     alert(statement);
 }).catch(err=>{
   console.log(err)
