@@ -22,10 +22,10 @@ class auth extends Component{
     "cubo-accesstoken": "h9mvWM65tjpyGcj0xMdeJvmEoTwu"
   }
 }
+    this.refs.email.value=''
+    this.refs.pass.value=''
     axios.post(url,authData,config)
     .then(res=>{
-        this.refs.email.value=''
-        this.refs.pass.value=''
         console.log(res.data.data.accessToken)
         alert('Login Successful, Redirecting to Home Page')
         document.cookie="paymentsession="+res.data.data.accessToken;
@@ -35,8 +35,6 @@ class auth extends Component{
     })    
     .catch(err=>{
       console.log(err)
-      this.refs.email.value=''
-      this.refs.pass.value=''
       if(err.response.status==401){
         alert('Email or Password is Incorrect, Try again')
       }
