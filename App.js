@@ -56,7 +56,7 @@ axios.post(url,data,config).then(res=>{
   document.cookie="paymentsession=loggedout";
   window.location.href='/logins'
   }
-  elses
+  else
   alert("Transaction failed, try again");
 })
     
