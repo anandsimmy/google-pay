@@ -9,6 +9,7 @@ import Transactions from './Transactions'
 import Auth from './Auth'
 import Logout from './Logout'
 import Signup from './Signup'
+import Message from './Message'
 
 const store= createStore(reducer)
 
@@ -20,6 +21,7 @@ class Root extends Component{
         <Route path='/transactions' exact component={Transactions} />
         <Route path='/login' exact component={Auth} />
         <Route path='/signup' exact component={Signup} />
+        <Route path='/success' exact component={Message} />
       </BrowserRouter>
     ) 
   }
