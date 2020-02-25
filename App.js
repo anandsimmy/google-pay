@@ -47,14 +47,14 @@ this.refs.message.value=''
 axios.post(url,data,config).then(res=>{
   console.log(res)
   let statement =
-      "Transaction Successful for Rs: "+thiss.refs.amount.value;
+      "Transaction Successful for Rs: "+this.refs.amount.value;
     alert(statement);
 }).catch(err=>{
   console.log(err)
   if(err.response.status==401){
   alert('Session timed out, Please login again')
   document.cookie="paymentsession=loggedout";
-  window.location.href='/logins'
+  window.location.href='/login'
   }
   else
   alert("Transaction failed, try again");
