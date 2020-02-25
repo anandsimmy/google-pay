@@ -1,0 +1,25 @@
+h1, p {
+  font-family: Lato;
+}
+input, button{
+  display:block;
+  margin-top:10px;
+}
+.sendscreen{
+  width:500px;
+  margin:20px auto;
+  padding:10px;
+  text-align:-webkit-center;
+}
+.btn-spacing{
+  margin-top:10px;
+  text-align:center;
+  display:block;
+  width:150px;
+}
+li{
+  color:crimson;
+}
+.inputwidth{
+  width:300px;
+}
