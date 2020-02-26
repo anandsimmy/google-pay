@@ -46,7 +46,6 @@ export default function TransitionsModal(props) {
         BackdropProps={{
           timeout: 500,
         }}
-        hideBackdrop="true"
       >
         <Fade in={open}>
           <div className={classes.paper}>
