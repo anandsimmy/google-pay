@@ -38,7 +38,7 @@ let config={
     "accept": "text/json",
     "content-type": "text/json",
     "authorization": "Bearer "+getCookie('paymentsession'),
-    "cubo-accesstoken":"h9mvWM65tjpyGcj0xMdeJvmEoTwu"
+    "cubo-accesstoken":"Ol1zouOxYS2IzL3QwXdlna6BHAf6"
   }
 }
 this.refs.amount.value=''
@@ -67,7 +67,7 @@ axios.post(url,data,config).then(res=>{
     headers:{
     "accept": "application/json",
     "Authorization": "Bearer "+getCookie('paymentsession'),
-    "cubo-accesstoken":"h9mvWM65tjpyGcj0xMdeJvmEoTwu"
+    "cubo-accesstoken":" h9mvWM65tjpyGcj0xMdeJvmEoTwu"
     }} 
     axios.get(url,config).then((res)=>{
       console.log(res)
