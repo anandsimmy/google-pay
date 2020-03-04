@@ -7,7 +7,6 @@ import { BrowserRouter,Route } from 'react-router-dom'
 import App from './App'
 import Transactions from './Transactions'
 import Auth from './Auth'
-import Logout from './Logout'
 import Signup from './Signup'
 import Message from './Message'
 

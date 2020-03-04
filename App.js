@@ -61,6 +61,9 @@ axios.post(url,data,config).then(res=>{
 })
     
   };
+  allTransactions = () => {
+    
+  }
   bankHandler = () => {
     this.props.onBank(
       this.props && this.props.balance,
@@ -116,6 +119,12 @@ axios.post(url,data,config).then(res=>{
         >
           Create Transaction
         </button>
+        <button
+          className="btn btn-primary btn-sm btn-spacing"
+          onClick={this.allTransactions}
+        >
+          Transactions History
+        </button>
         <button className="btn btn-danger btn-sm btn-spacing btn-logout" onClick={this.logoutHandler}>
         <span className="glyphicon glyphicon-log-out"></span> Logout</button>
       </div>
@@ -155,7 +164,8 @@ const mapDispatchToProps = dispatch => {
       });
     },
     onLogout:()=>{
-      dispatch({type:"logout",payload:{token:null}})}
+      dispatch({type:"logout",payload:{token:null}})
+    }
   };
 };
 

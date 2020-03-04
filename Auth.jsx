@@ -26,7 +26,7 @@ class auth extends Component{
     this.refs.pass.value=''
     axios.post(url,authData,config)
     .then(res=>{
-        console.log(res.data.data.accessToken)
+        console.log(res)
         alert('Login Successful, Redirecting to Home Page')
         document.cookie="paymentsession="+res.data.data.accessToken;
         this.props.onTokenDispatch(res.data.data.accessToken)
