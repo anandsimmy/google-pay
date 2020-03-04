@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import axios from 'axios'
 
 const transactions = props => {
-  console.log(props.transactionhistory && props.transactionhistory[0])
   const alltransactions= props && props.transactionhistory && props.transactionhistory.map( ele => {
         return (
         <li className='list-group-item'
